@@ -321,6 +321,7 @@ struct snd_sof_dev {
 	/* DSP firmware boot */
 	wait_queue_head_t boot_wait;
 	u32 boot_complete;
+	u32 first_boot_complete;
 
 	/* DSP HW differentiation */
 	struct snd_sof_pdata *pdata;
@@ -447,6 +448,7 @@ int snd_sof_ipc_stream_pcm_params(struct snd_sof_dev *sdev,
 int snd_sof_dsp_mailbox_init(struct snd_sof_dev *sdev, u32 dspbox,
 			     size_t dspbox_size, u32 hostbox,
 			     size_t hostbox_size);
+int snd_sof_ipc_valid(struct snd_sof_dev *sdev);
 int sof_ipc_tx_message(struct snd_sof_ipc *ipc, u32 header, void *tx_data,
 		       size_t tx_bytes, void *rx_data, size_t rx_bytes);
 struct snd_sof_widget *snd_sof_find_swidget(struct snd_sof_dev *sdev,
