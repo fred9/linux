@@ -13,6 +13,15 @@ config SND_SOC_SOF
           Say Y if you have such a device that is supported by SOF.
           If unsure select "N".
 
+config SND_SOC_SOF_COMPRESS
+	tristate "SOF ALSA Compressed API support"
+	depends on SND_SOC_SOF
+	select SND_SOC_COMPRESS
+	help
+          This adds support for the ALSA compressed API in SOF
+	  Say Y if you need this option
+          If unsure select "N".
+
 config SND_SOC_SOF_NOCODEC
 	tristate "SOF nocodec mode Support"
 	depends on SND_SOC_SOF
