@@ -235,6 +235,10 @@ static int sof_pci_probe(struct pci_dev *pci,
 
 #endif /* CONFIG_SND_SOC_SOF_FORCE_NOCODEC_MODE */
 
+	if (!mach) {
+		dev_err(dev, "error: no machine driver found\n");
+		goto release_regions;
+	}
 	mach->pdata = ops;
 
 	sof_pdata->id = pci_id->device;
